@@ -121,7 +121,6 @@
             &none &none &none    &none &none &none
             >;
         };
-        ;q
 
         none_layer {
             bindings = <
