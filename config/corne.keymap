@@ -55,21 +55,6 @@
         zmk,matrix_transform = &five_column_transform;
     };
 
-    macros {
-        // hold to enable apps layer and left command at the same time
-        apps_and_lcmd: apps_and_lcmd {
-            label = "apps_and_lcmd";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <0>;
-            bindings
-                = <&macro_press &mo APPS &kp LCMD>
-                , <&macro_pause_for_release>
-                , <&macro_release &mo APPS &kp LCMD>
-                ;
-        };
-    };
-
     combos {
         compatible = "zmk,combos";
         combo_esc {
@@ -90,84 +75,11 @@
         combo_enter {
             timeout-ms = <30>;
             key-positions = <17 18>;
-            bindings = <&kp ENT>;
+            bindings = <&kp ENTER>;
         };
     };
 
     behaviors {
-        // https://zmk.dev/docs/behaviors/hold-tap#option-3-balanced
-        bhm: sticky_balanced_homerow_mods {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_MODS";
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            quick-tap-ms = <0>;
-            flavor = "balanced";
-            bindings = <&sk>, <&kp>;
-        };
-
-        // `&lt` using `&apps_and_lcmd` and `&ts_spc_bs`
-        // parameters are not used, so you can pass anything, e.g. 0 0
-        MAKE_TAP_SHIFT(ts_spc_bs, SPACE, BACKSPACE)
-        spc_bs_apps: spc_bs_apps {
-            compatible = "zmk,behavior-hold-tap";
-            label = "spc_bs_apps";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <200>;
-            bindings = <&apps_and_lcmd>, <&ts_spc_bs>;
-        };
-
-        // tap, alt+tap, hold
-        esc_tab_numbers: esc_tab_numbers {
-            compatible = "zmk,behavior-mod-morph";
-            label = "esc_tab_numbers";
-            #binding-cells = <0>;
-            bindings = <&lt NUMBERS ESC>, <&kp TAB>;
-            mods = <(MOD_LALT|MOD_RALT)>;
-        };
-
-        // apps layer also holds down CMD, so I use a mod-morph to escape it
-        prev_space: prev_space {
-            compatible = "zmk,behavior-mod-morph";
-            label = "prev_space";
-            #binding-cells = <0>;
-            bindings = <&kp PREV_SPACE>, <&kp PREV_SPACE>;
-            mods = <(MOD_LGUI)>;
-        };
-        next_space: next_space {
-            compatible = "zmk,behavior-mod-morph";
-            label = "next_space";
-            #binding-cells = <0>;
-            bindings = <&kp NEXT_SPACE>, <&kp NEXT_SPACE>;
-            mods = <(MOD_LGUI)>;
-        };
-
-        // tap, shift+tap, hold
-        bs_del_shift: bs_del_shift {
-            compatible = "zmk,behavior-mod-morph";
-            label = "bs_del_shift";
-            #binding-cells = <0>;
-            bindings = <&mt LSHIFT BACKSPACE>, <&kp DELETE>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        // alt+d = alt+x
-        alt_d: alt_d {
-            compatible = "zmk,behavior-mod-morph";
-            label = "alt_d";
-            #binding-cells = <0>;
-            bindings = <&kp D>, <&kp RA(X)>;
-            mods = <(MOD_RALT)>;
-        };
-
-        // interpunction
-        MAKE_TAP_SHIFT(ts_dot, DOT, QUESTION)
-        MAKE_TAP_SHIFT(ts_comma, COMMA, EXCLAMATION)
-        MAKE_TAP_SHIFT(ts_colon, COLON, SEMICOLON)
-
-        // other
-        MAKE_TAP_SHIFT(ts_slash, SLASH, BACKSLASH)
     };
 
     keymap {
