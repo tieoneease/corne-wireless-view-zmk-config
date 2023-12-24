@@ -126,7 +126,7 @@
         label = "Movement";
             bindings = <
 &none &kp TAB &none &none &none    &none &none &none &none &none
-&none &none &none &LS(LG(SPACE)) &none    &kp LEFT &kp DN &kp UP &kp RIGHT &none
+&none &none &none &LS(LG(SPACE)) &none    &kp LEFT &kp DOWN &kp UP &kp RIGHT &none
 &none &none &none &none &none    &none &none &none &none &none
             &none &none &none    &none &none &none
             >;
