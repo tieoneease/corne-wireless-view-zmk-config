@@ -96,7 +96,7 @@
         lower_layer {
         label = "Sym/Num";
         bindings = <
-                &kp ESC   &kp N7 &kp N8 &kp N9 &trans   &trans &kp MINUS &kp EQUAL  &kp GRAVE  &kp TILDE
+                &kp ESC   &kp N7 &kp N8 &kp N9 &trans   &trans &kp MINUS &kp EQUAL  &kp GRAVE  &kp GRAVE
                 &kp LCTRL &kp N4 &kp N5 &kp N6 &trans   &trans &kp LBKT  &kp RBKT   &kp BSLH   &kp SQT
                 &kp LSHFT &kp N1 &kp N2 &kp N3 &kp N0   &kp LEFT &kp LPAR  &kp RPAR   &kp RIGHT     &trans
                 &trans &trans &trans   &mo 4 &kp RALT &kp RGUI
@@ -106,7 +106,7 @@
         label = "Nav";
         bindings = <
                 &kp LG(Q)     &kp LG(W)    &none &none &none    &none &none &none &none &none
-                &kp LCTRL     &kp LA(N4)   &kp LA(N5) &kp LA(N6)   &trans             &kp M &kp LC(LS(TAB)) &kp LC(TAB) &kp LC(LS(PG_DN)) &kp BSLH
+                &kp LCTRL     &kp LA(N4)   &kp LA(N5) &kp LA(N6)   &trans             &kp MV_TB_L &kp PREV_TAB &kp NEXT_TAB &kp MV_TB_R &kp BSLH
                 &kp LSHFT     &kp LA(N1)   &kp LA(N2) &kp LA(N3)   &trans             &kp LS(LA(P)) &kp LA(P)  &kp LA(N) &kp LS(LA(N))
                 &trans &trans &trans   &trans &trans &trans
                 >;
