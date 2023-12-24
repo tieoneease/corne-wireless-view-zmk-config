@@ -84,9 +84,9 @@
 
     keymap {
         compatible = "zmk,keymap";
-        label = "Base";
         default_layer {
-            bindings = <
+        label = "Base Layer";
+        bindings = <
 &kp Q &kp      W &kp      E &kp      R &kp T          &kp Y &kp      U &kp      I &kp      O &kp P
 &mt HR1 A &kp  S &kp      D &kp      F &kp G          &kp H &kp      J &kp      K &kp      L &mt HR1 SEMI 
 &mt HR2 Z &kp  X &kp      C &kp      V &kp B          &kp N &kp      M &kp  COMMA &kp    DOT &mt HR2 FSLH
@@ -99,26 +99,31 @@
                 &kp ESC   &kp N7 &kp N8 &kp N9 &trans   &trans &kp MINUS &kp EQUAL  &kp GRAVE  &kp TILDE
                 &kp LCTRL &kp N4 &kp N5 &kp N6 &trans   &trans &kp LBKT  &kp RBKT   &kp BSLH   &kp SQT
                 &kp LSHFT &kp N1 &kp N2 &kp N3 &kp N0   &kp LEFT &kp LPAR  &kp RPAR   &kp RIGHT     &trans
-                &trans &trans &trans   &trans &trans &trans
+                &trans &trans &trans   &trans &kp RALT &kp RGUI
                 >;
         };
         nav_layer {
         label = "Nav";
         bindings = <
-                &none &none &none &none &none    &none &none &none &none &none
-                &kp C_VOL_DN  &kp C_VOL_UP &trans   &trans   &trans                   &kp LC(LS(PG_UP)) &kp LC(LS(TAB)) &kp LC(TAB) &kp LC(LS(PG_DN)) &kp BSLH
-                &kp LSHFT     &kp LA(N1)   &kp LA(N2) &kp LA(N3)   &kp LA(N4)         &kp LA(P) &kp DOWN  &kp UP        &kp LA(N) &kp LA(N1)
+                &kp LG(Q)     &kp LG(W)    &none &none &none    &none &none &none &none &none
+                &kp LCTRL     &kp LA(N4)   &kp LA(N5) &kp LA(N6)   &trans             &kp LC(LS(PG_UP)) &kp LC(LS(TAB)) &kp LC(TAB) &kp LC(LS(PG_DN)) &kp BSLH
+                &kp LSHFT     &kp LA(N1)   &kp LA(N2) &kp LA(N3)   &trans             &kp LS(LA(P)) &kp LA(P)  &kp LA(N) &kp LS(LA(N))
                 &trans &trans &trans   &trans &trans &trans
                 >;
         };
 
-        bluetooth_layer {
-        label = "Bluetooth";
+        control_layer {
+        label = "Control";
             bindings = <
 &bt BT_CLR &none        &none        &none        &none    &none &none &none &none &none
 &none      &bt BT_SEL 3 &bt BT_SEL 4 &none        &none    &none &none &none &none &none
 &none      &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2          &none &none &none &none &none
             &none &none &none    &none &none &none
+
+&bt BT_CLR   &none        &none      &none &none    &none &none &none &none &none
+&kp C_VOL_DN &kp C_VOL_UP &kp C_PLAY &none &none    &bt BT_SEL 4 &bt BT_SEL 5 &bt BT_SEL 6 &bt &none    &none
+&none &none &none &none &none                       &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &none
+            &none &none &none                       &none &none &none
             >;
         };
 
